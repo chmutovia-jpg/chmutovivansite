@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+  <!-- VERSION: chmutovivansite-mymind-mist-visible-v2-2026-06-30 -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,87 +53,148 @@
         z-index: 0;
         pointer-events: none;
         overflow: hidden;
+        isolation: isolate;
+      }
+
+      .bg-objects::before,
+      .bg-objects::after {
+        content: "";
+        position: absolute;
+        inset: -18%;
+        will-change: transform, opacity;
+        pointer-events: none;
+      }
+
+      .bg-objects::before {
+        background:
+          radial-gradient(ellipse at 18% 14%, rgba(168, 185, 255, 0.62) 0%, rgba(198, 209, 255, 0.36) 22%, rgba(236, 240, 255, 0.16) 42%, transparent 62%),
+          radial-gradient(ellipse at 78% 18%, rgba(190, 204, 255, 0.54) 0%, rgba(215, 224, 255, 0.30) 24%, rgba(246, 248, 255, 0.16) 44%, transparent 66%),
+          radial-gradient(ellipse at 50% 76%, rgba(172, 187, 248, 0.46) 0%, rgba(206, 216, 255, 0.26) 26%, rgba(247, 248, 255, 0.13) 48%, transparent 70%);
+        filter: blur(32px) saturate(1.08);
+        opacity: 0.98;
+        animation: ambientMistA 24s ease-in-out infinite alternate;
+      }
+
+      .bg-objects::after {
+        background:
+          radial-gradient(ellipse at 34% 36%, rgba(255, 255, 255, 0.66) 0%, rgba(235, 240, 255, 0.34) 26%, transparent 58%),
+          radial-gradient(ellipse at 92% 60%, rgba(182, 197, 255, 0.38) 0%, rgba(226, 232, 255, 0.20) 28%, transparent 62%),
+          radial-gradient(ellipse at 8% 92%, rgba(205, 216, 255, 0.34) 0%, rgba(239, 243, 255, 0.16) 30%, transparent 64%);
+        filter: blur(46px) saturate(1.05);
+        opacity: 0.74;
+        animation: ambientMistB 31s ease-in-out infinite alternate;
       }
 
       .bg-object {
         position: absolute;
-        opacity: 0.52;
-        will-change: transform;
+        border-radius: 999px;
+        will-change: transform, opacity;
+        filter: blur(34px);
+        opacity: 0.9;
+        mix-blend-mode: multiply;
       }
 
-      .bg-object.ring {
-        width: 220px;
-        height: 220px;
-        border: 1px solid rgba(105, 115, 90, 0.34);
-        border-radius: 50%;
-        top: 10%;
-        right: 6%;
-        animation: floatSlow 16s ease-in-out infinite;
+      .bg-object.mist-1 {
+        width: 58vw;
+        height: 42vw;
+        left: -8vw;
+        top: 0vh;
+        background: radial-gradient(circle at 50% 50%, rgba(172, 188, 255, 0.58) 0%, rgba(207, 217, 255, 0.34) 38%, rgba(247, 248, 255, 0.12) 58%, transparent 72%);
+        animation: mistDrift1 22s ease-in-out infinite;
       }
 
-      .bg-object.frame {
-        width: 290px;
-        height: 160px;
-        border: 1px solid rgba(17, 18, 15, 0.12);
-        border-radius: 8px;
-        left: -86px;
-        top: 38%;
-        transform: rotate(-9deg);
-        animation: driftFrame 20s ease-in-out infinite;
+      .bg-object.mist-2 {
+        width: 52vw;
+        height: 38vw;
+        right: -5vw;
+        top: 12vh;
+        background: radial-gradient(circle at 50% 50%, rgba(196, 208, 255, 0.56) 0%, rgba(222, 229, 255, 0.30) 40%, rgba(250, 250, 255, 0.14) 60%, transparent 74%);
+        animation: mistDrift2 26s ease-in-out infinite;
       }
 
-      .bg-object.blue-line {
-        width: 2px;
-        height: 190px;
-        right: 14%;
-        bottom: 9%;
-        background: var(--blue);
-        opacity: 0.55;
-        animation: bluePulse 7s ease-in-out infinite;
+      .bg-object.mist-3 {
+        width: 54vw;
+        height: 42vw;
+        left: 24vw;
+        bottom: -7vw;
+        background: radial-gradient(circle at 50% 50%, rgba(164, 181, 244, 0.46) 0%, rgba(204, 215, 255, 0.28) 39%, rgba(248, 249, 255, 0.13) 60%, transparent 76%);
+        animation: mistDrift3 24s ease-in-out infinite;
       }
 
-      .bg-object.dot-grid {
-        width: 132px;
-        height: 132px;
-        left: 7%;
-        bottom: 14%;
-        background-image: radial-gradient(rgba(56, 65, 47, 0.42) 1.4px, transparent 1.4px);
-        background-size: 18px 18px;
-        animation: floatSlow 18s ease-in-out infinite reverse;
+      .bg-object.glow {
+        width: 30vw;
+        height: 30vw;
+        right: 18vw;
+        top: -5vw;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(237, 242, 255, 0.44) 42%, transparent 74%);
+        filter: blur(20px);
+        mix-blend-mode: screen;
+        animation: mistGlow 18s ease-in-out infinite;
       }
 
-      @keyframes floatSlow {
+      @keyframes ambientMistA {
+        0% {
+          transform: translate3d(-2vw, -1vw, 0) scale(1.02) rotate(0deg);
+        }
+
+        100% {
+          transform: translate3d(3vw, 2vw, 0) scale(1.08) rotate(4deg);
+        }
+      }
+
+      @keyframes ambientMistB {
+        0% {
+          transform: translate3d(2vw, 1vw, 0) scale(1.04) rotate(0deg);
+        }
+
+        100% {
+          transform: translate3d(-3vw, -2vw, 0) scale(1.1) rotate(-5deg);
+        }
+      }
+
+      @keyframes mistDrift1 {
         0%,
         100% {
-          transform: translate3d(0, 0, 0) rotate(0deg);
+          transform: translate3d(0, 0, 0) scale(1);
         }
 
         50% {
-          transform: translate3d(18px, -24px, 0) rotate(5deg);
+          transform: translate3d(5vw, 2vw, 0) scale(1.08);
         }
       }
 
-      @keyframes driftFrame {
+      @keyframes mistDrift2 {
         0%,
         100% {
-          transform: translate3d(0, 0, 0) rotate(-9deg);
+          transform: translate3d(0, 0, 0) scale(1);
         }
 
         50% {
-          transform: translate3d(26px, 18px, 0) rotate(-3deg);
+          transform: translate3d(-4vw, -2vw, 0) scale(1.08);
         }
       }
 
-      @keyframes bluePulse {
+      @keyframes mistDrift3 {
         0%,
         100% {
-          transform: translateY(0) scaleY(1);
-          opacity: 0.32;
+          transform: translate3d(0, 0, 0) scale(1);
         }
 
         50% {
-          transform: translateY(-22px) scaleY(1.18);
-          opacity: 0.75;
+          transform: translate3d(2vw, -3vw, 0) scale(1.06);
+        }
+      }
+
+      @keyframes mistGlow {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 0.82;
+        }
+
+        50% {
+          transform: translate3d(1.6vw, 1vw, 0) scale(1.12);
+          opacity: 1;
         }
       }
 
@@ -156,10 +218,11 @@
         z-index: 1;
         width: min(calc(100% - 32px), var(--max));
         margin: 28px auto;
-        background: rgba(251, 251, 248, 0.86);
+        background: rgba(251, 251, 248, 0.68);
         border: 1px solid var(--line);
         border-radius: var(--radius);
         overflow: hidden;
+        backdrop-filter: blur(10px) saturate(1.02);
         box-shadow: 0 20px 80px rgba(20, 22, 18, 0.05);
       }
 
@@ -172,7 +235,7 @@
         align-items: center;
         min-height: 68px;
         padding: 0 clamp(18px, 3vw, 36px);
-        background: rgba(251, 251, 248, 0.78);
+        background: rgba(251, 251, 248, 0.62);
         border-bottom: 1px solid var(--soft-line);
         backdrop-filter: blur(18px);
       }
@@ -471,7 +534,7 @@
         padding: clamp(52px, 8vw, 106px) clamp(22px, 5vw, 64px);
         background:
           linear-gradient(90deg, rgba(17, 18, 15, 0.04) 1px, transparent 1px) 0 0 / 16.666% 100%,
-          var(--paper);
+          rgba(251, 251, 248, 0.52);
       }
 
       .ai-title {
@@ -886,12 +949,40 @@
           gap: 14px;
         }
 
-        .bg-object.ring {
-          right: -120px;
+        .bg-objects {
+          inset: -20%;
         }
 
-        .bg-object.frame {
-          left: -190px;
+        .bg-object {
+          filter: blur(34px);
+        }
+
+        .bg-object.mist-1 {
+          width: 78vw;
+          height: 62vw;
+          left: -24vw;
+          top: -14vw;
+        }
+
+        .bg-object.mist-2 {
+          width: 64vw;
+          height: 56vw;
+          right: -18vw;
+          top: 20vh;
+        }
+
+        .bg-object.mist-3 {
+          width: 70vw;
+          height: 58vw;
+          left: 8vw;
+          bottom: -24vw;
+        }
+
+        .bg-object.glow {
+          width: 34vw;
+          height: 34vw;
+          right: 8vw;
+          top: -8vw;
         }
 
         .nav {
@@ -1063,10 +1154,10 @@
   </head>
   <body>
     <div class="bg-objects" aria-hidden="true">
-      <span class="bg-object ring"></span>
-      <span class="bg-object frame"></span>
-      <span class="bg-object blue-line"></span>
-      <span class="bg-object dot-grid"></span>
+      <span class="bg-object mist-1"></span>
+      <span class="bg-object mist-2"></span>
+      <span class="bg-object mist-3"></span>
+      <span class="bg-object glow"></span>
     </div>
 
     <main class="page">
@@ -1095,7 +1186,7 @@
 
           <div class="portrait-wrap" aria-label="Фото Ивана">
             <div class="portrait">
-              <img src="ivan.webp" alt="Иван Чмутов" />
+              <img src="./ivan.webp?v=20260630b" alt="Иван Чмутов" onerror="this.onerror=null; this.src='./assets/ivan.webp?v=20260630b';" />
             </div>
           </div>
         </div>
@@ -1491,116 +1582,4 @@
         <span>© 2026 Иван Чмутов</span>
         <span>Project Manager who turns chaos into a clear plan</span>
       </footer>
-    </main>
-
-    <script>
-      const phrases = [
-        "разбора пользовательского фидбека",
-        "поиска повторяющихся паттернов",
-        "формулирования user stories",
-        "подготовки backlog",
-        "проверки UX-логики",
-        "быстрого прототипирования MVP",
-      ];
-
-      const typingEl = document.querySelector("#typing");
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      if (reduceMotion) {
-        typingEl.textContent = phrases[0];
-      } else {
-        let phraseIndex = 0;
-        let letterIndex = 0;
-        let deleting = false;
-
-        const type = () => {
-          const phrase = phrases[phraseIndex];
-          typingEl.textContent = phrase.slice(0, letterIndex);
-
-          if (!deleting && letterIndex < phrase.length) {
-            letterIndex += 1;
-            window.setTimeout(type, 42);
-            return;
-          }
-
-          if (!deleting && letterIndex === phrase.length) {
-            deleting = true;
-            window.setTimeout(type, 1150);
-            return;
-          }
-
-          if (deleting && letterIndex > 0) {
-            letterIndex -= 1;
-            window.setTimeout(type, 22);
-            return;
-          }
-
-          deleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          window.setTimeout(type, 160);
-        };
-
-        type();
-      }
-
-      const revealTargets = [
-        ".hero-main",
-        ".portrait-wrap",
-        ".meta-item",
-        ".line-item",
-        ".typing-box",
-        ".step",
-        ".work-card",
-        ".case-copy",
-        ".case-board",
-        ".case-row",
-        ".artifact-card",
-        ".trust-panel",
-        ".skill-column",
-        ".contact-list",
-      ];
-
-      const revealEls = [...document.querySelectorAll(revealTargets.join(","))];
-      revealEls.forEach((el, index) => {
-        el.classList.add("reveal");
-        el.style.transitionDelay = `${Math.min(index % 6, 5) * 55}ms`;
-      });
-
-      if (reduceMotion) {
-        revealEls.forEach((el) => el.classList.add("is-visible"));
-      } else {
-        const revealObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add("is-visible");
-              revealObserver.unobserve(entry.target);
-            });
-          },
-          { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
-        );
-
-        revealEls.forEach((el) => revealObserver.observe(el));
-      }
-
-      const navLinks = [...document.querySelectorAll(".nav a")];
-      const sections = navLinks
-        .map((link) => document.querySelector(link.getAttribute("href")))
-        .filter(Boolean);
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            navLinks.forEach((link) => {
-              link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
-            });
-          });
-        },
-        { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 },
-      );
-
-      sections.forEach((section) => observer.observe(section));
-    </script>
-  </body>
-</html>
+   
