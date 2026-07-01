@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- BASIC SEO -->
+  <!-- BASIC -->
   <title>Иван Чмутов — Product Manager / AI Builder</title>
-  <meta name="description" content="Иван Чмутов — Project Manager и AI Builder. Делаю MVP, структурирую хаос, превращаю идеи и фидбек в продукт." />
-  <meta name="keywords" content="product manager, ai builder, project manager, mvp, feedback analysis, startup" />
+  <meta name="description" content="Иван Чмутов — Product Manager и AI Builder. Делаю MVP, AI продукты и превращаю хаос в систему." />
   <meta name="author" content="Ivan Chmutov" />
   <link rel="canonical" href="https://chmutov.tech" />
 
   <!-- FAVICON -->
-  <link rel="icon" href="/favicon.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
 
   <!-- OPEN GRAPH (Telegram / LinkedIn / Discord) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ivan Chmutov — Product Manager / AI Builder" />
-  <meta property="og:description" content="Building AI products, MVPs and growth tools. Turning chaos into structured product." />
+  <meta property="og:description" content="Building AI products, MVPs and growth tools. FeedbackWall, RoastMyApp, BetaRoom." />
   <meta property="og:url" content="https://chmutov.tech" />
   <meta property="og:image" content="https://chmutov.tech/preview.png" />
   <meta property="og:site_name" content="Chmutov Portfolio" />
@@ -26,16 +26,78 @@
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ivan Chmutov — Product Manager / AI Builder" />
-  <meta name="twitter:description" content="AI products, MVPs, product thinking, structured chaos." />
+  <meta name="twitter:description" content="AI products, MVPs, product thinking, growth tools." />
   <meta name="twitter:image" content="https://chmutov.tech/preview.png" />
 
-  <!-- REDIRECT www → non-www (GitHub Pages safe way via JS fallback) -->
+  <!-- WWW → non-www redirect -->
   <script>
     if (window.location.hostname.startsWith("www.")) {
       window.location.href = window.location.href.replace("www.", "");
     }
   </script>
 
-  <!-- YOUR EXISTING STYLES (НЕ ТРОГАЮ) -->
+  <!-- STYLES -->
   <style>
-    /* весь твой CSS оставляю как есть */
+    :root {
+      --bg: #f6f6f2;
+      --ink: #11120f;
+      --muted: #8b8d84;
+      --line: #dcdcd4;
+      --olive: #69735a;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--olive);
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Иван Чмутов</h1>
+    <p>Product Manager / AI Builder</p>
+
+    <p>
+      Делаю MVP, AI продукты и превращаю хаос в структурированные системы.
+      Работал с AI-автоматизациями, продуктами и быстрыми MVP.
+    </p>
+
+    <div class="badge">FeedbackWall • RoastMyApp • BetaRoom</div>
+  </div>
+</body>
+</html>
